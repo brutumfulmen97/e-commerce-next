@@ -1,10 +1,17 @@
-export type ProductType = {
-    id: string;
+type SearchParams = {
     name: string;
     unit_amount: number | null;
-    quantity?: number | 1;
     description: string | null;
     image: string;
     currency?: string;
     features?: string;
+};
+
+type Params = {
+    id: string;
+};
+
+export type SearchParamsType = {
+    params: Params;
+    searchParams: SearchParams;
 };
