@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { SearchParamsType } from "@/types/SearchParamsType";
 import { formatPrice } from "@/util/PriceFormat";
+import AddCart from "./AddCart";
 
 export default async function Product({ searchParams }: SearchParamsType) {
     return (
@@ -8,8 +9,8 @@ export default async function Product({ searchParams }: SearchParamsType) {
             <Image
                 src={searchParams.image}
                 alt={searchParams.name}
-                width={600}
-                height={600}
+                width={800}
+                height={800}
             />
             <div className="font-medium text-gray-700">
                 <h1 className="text-2xl  py-2">{searchParams.name}</h1>
@@ -21,9 +22,7 @@ export default async function Product({ searchParams }: SearchParamsType) {
                             formatPrice(searchParams.unit_amount)}
                     </p>
                 </div>
-                <button className="my-12 text-white py-2 px-6 font-medium rounded-md bg-teal-700">
-                    Add to cart
-                </button>
+                <AddCart id={0} {...searchParams} />
             </div>
         </div>
     );
