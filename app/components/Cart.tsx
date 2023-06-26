@@ -8,6 +8,10 @@ import basket from "@/public/shopping-basket.png";
 
 export default function Cart() {
     const cartStore = useCartStore();
+    const totalPrice = cartStore.cart.reduce(
+        (acc, cartItem) => acc + cartItem.unit_amount * cartItem.quantity!,
+        0
+    );
     return (
         <div
             className="fixed w-full h-screen left-0 top-0 bg-black/25"
@@ -66,9 +70,12 @@ export default function Cart() {
                     </div>
                 ))}
                 {cartStore.cart.length > 0 && (
-                    <button className="py-2 mt-4 bg-teal-700 w-full rounded-md text-white">
-                        Checkout
-                    </button>
+                    <>
+                        <p>Total: {formatPrice(totalPrice)}</p>
+                        <button className="py-2 mt-4 bg-teal-700 w-full rounded-md text-white">
+                            Checkout
+                        </button>
+                    </>
                 )}
                 {cartStore.cart.length === 0 && (
                     <div className="flex flex-col items-center gap-12 text-2xl font-medium pt-56 opacity-75">
