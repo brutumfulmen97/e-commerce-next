@@ -9,8 +9,9 @@ export default async function Product({ searchParams }: SearchParamsType) {
             <Image
                 src={searchParams.image}
                 alt={searchParams.name}
-                width={800}
-                height={800}
+                width={450}
+                height={450}
+                style={{ width: 450, height: 450 }}
             />
             <div className="font-medium text-gray-700">
                 <h1 className="text-2xl  py-2">{searchParams.name}</h1>
