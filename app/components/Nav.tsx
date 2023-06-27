@@ -8,6 +8,7 @@ import Cart from "./Cart";
 import { useCartStore } from "@/Store";
 import { AiFillShopping } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
+import DarkLight from "./DarkLight";
 
 export default function Nav({ user }: Session) {
     const cartStore = useCartStore();
@@ -16,12 +17,15 @@ export default function Nav({ user }: Session) {
             <Link href={"/"}>
                 <h1>NAVIGACIJA</h1>
             </Link>
-            <ul className="flex items-center gap-12">
+            <ul className="flex items-center justify-center gap-8">
+                <li>
+                    <DarkLight />
+                </li>
                 <li
                     onClick={() => cartStore.toggleCart()}
-                    className="flex items-center text-3xl relative cursor-pointer"
+                    className="flex items-center justify-center text-3xl relative cursor-pointer"
                 >
-                    <AiFillShopping />
+                    <AiFillShopping className="mb-3" />
                     <AnimatePresence>
                         {cartStore.cart.length > 0 && (
                             <motion.span
@@ -35,6 +39,7 @@ export default function Nav({ user }: Session) {
                         )}
                     </AnimatePresence>
                 </li>
+
                 {!user && (
                     <li className="bg-primary text-white py-2 px-4 rounded-md">
                         <button
