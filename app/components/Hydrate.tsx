@@ -11,8 +11,18 @@ export default function Hydrate({ children }: { children: ReactNode }) {
         setIsHydrated(true);
     }, []);
     return (
-        <body className="`px-4 lg:px-48" data-theme={themeStore.mode}>
-            {isHydrated ? <>{children}</> : <div>Loading...</div>}
-        </body>
+        <>
+            {isHydrated ? (
+                <body className="px-8 lg:px-48" data-theme={themeStore.mode}>
+                    {children}
+                </body>
+            ) : (
+                <body className="px-8 lg:px-48">
+                    <div className="w-full h-screen flex justify-center items-center">
+                        <span className="loading loading-dots loading-lg"></span>
+                    </div>
+                </body>
+            )}
+        </>
     );
 }

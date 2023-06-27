@@ -12,6 +12,7 @@ export default async function Product({ searchParams }: SearchParamsType) {
                 width={450}
                 height={450}
                 style={{ width: 450, height: 450 }}
+                className="rounded-lg"
             />
             <div className="font-medium">
                 <h1 className="text-2xl  py-2">{searchParams.name}</h1>
