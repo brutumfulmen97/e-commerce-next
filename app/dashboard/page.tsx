@@ -37,9 +37,11 @@ export default async function Dashboard() {
             <div className="font-medium">
                 {orders.map((order) => (
                     <div className="rounded-lg p-8 my-12" key={order.id}>
-                        <h2>Order reference: {order.id}</h2>
+                        <h2 className="text-xs font-medium">
+                            Order reference: {order.id}
+                        </h2>
                         <p>Time: {order.createdDate.toDateString()}</p>
-                        <p className="text-md py-2">
+                        <p className="text-xs py-2">
                             Status{" "}
                             <span
                                 className={`${
@@ -51,12 +53,10 @@ export default async function Dashboard() {
                                 {order.status}
                             </span>
                         </p>
-                        <p className="font-medium">
-                            Total: {formatPrice(order.amount)}
-                        </p>
-                        <div className="flex gap-8">
+
+                        <div className="text-sm lg:flex items-center lg:gap-4">
                             {order.products.map((product) => (
-                                <div className="py-2" key={product.id}>
+                                <div className="py-2 " key={product.id}>
                                     <h2 className="py-2">{product.name}</h2>
                                     <div className="flex items-center gap-4">
                                         <Image
@@ -73,6 +73,9 @@ export default async function Dashboard() {
                                 </div>
                             ))}
                         </div>
+                        <p className="font-medium">
+                            Total: {formatPrice(order.amount)}
+                        </p>
                     </div>
                 ))}
             </div>
