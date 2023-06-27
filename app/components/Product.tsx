@@ -27,7 +27,7 @@ export default function Product({
                 },
             }}
         >
-            <div className="text-gray-600">
+            <div>
                 <Image
                     src={image}
                     alt={name}
@@ -37,7 +37,7 @@ export default function Product({
                 />
                 <div className="font-medium py-2">
                     <h1>{name}</h1>
-                    <h2 className="text-sm text-teal-600">
+                    <h2 className="text-sm text-primary">
                         {unit_amount !== null
                             ? formatPrice(unit_amount)
                             : "N/A"}

@@ -36,7 +36,10 @@ export default async function Dashboard() {
             <h1 className="text-bold">Your Orders</h1>
             <div className="font-medium">
                 {orders.map((order) => (
-                    <div className="rounded-lg p-8 my-12" key={order.id}>
+                    <div
+                        className="rounded-lg p-8 my-12 bg-base-200"
+                        key={order.id}
+                    >
                         <h2 className="text-xs font-medium">
                             Order reference: {order.id}
                         </h2>
