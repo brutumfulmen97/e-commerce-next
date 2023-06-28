@@ -31,6 +31,7 @@ export default function Product({
                 <Image
                     src={image}
                     alt={name}
+                    priority={true}
                     width={800}
                     height={800}
                     className="w-full h-70 object-cover rounded-lg"

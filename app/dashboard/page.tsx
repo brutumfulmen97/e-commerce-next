@@ -1,11 +1,10 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { formatPrice } from "@/util/PriceFormat";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/util/PrismaClient";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
 
 const fetchOrders = async () => {
-    const prisma = new PrismaClient();
     const user = await getServerSession(authOptions);
 
     if (!user) {
@@ -67,6 +66,7 @@ export default async function Dashboard() {
                                             alt={product.name}
                                             width={36}
                                             height={36}
+                                            priority={true}
                                         />
                                         <p>
                                             {formatPrice(product.unit_amount)}
